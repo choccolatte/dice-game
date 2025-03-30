@@ -13,8 +13,8 @@ const rulesBtn = document.getElementById("rules-btn");
 let diceValuesArr = [];
 let isModalShowing = false;
 let score = 0;
-let round = 1; 
-let rolls = 0; 
+let round = 1;
+let rolls = 0;
 
 const rollDice = () => {
   diceValuesArr = [];
@@ -34,6 +34,12 @@ const updateStats = () => {
   roundElement.textContent = round;
 };
 
+const updateRadioOption = (index, score) => {
+  scoreInputs[index].disabled = false;
+  scoreInputs[index].value = score;
+  scoreSpans[index].textContent = `, score = ${score}`;
+};
+
 
 
 rollDiceBtn.addEventListener("click", () => {
@@ -43,6 +49,7 @@ rollDiceBtn.addEventListener("click", () => {
     rolls++;
     rollDice();
     updateStats();
+    
   }
 });
 
